@@ -23,18 +23,11 @@ print('ввод 2-го числа ')
 second = my_input()
 print(first, second)
 
-#first = ['A','2']
-#second = ['C', '4', 'F']
 
 if len(first) < len(second):
   first, second = second, first
 
 res = deque()
-# при использовании reverse() в строках 26, 27, 37 используется i влместо len(first) - i - 1
-# и добавление цифр при разной длинне чисел будет через цикл
-# чуть позже сравню скорости в обоих случаях
-#first.reverse()
-#second.reverse()
 
 k = 0
 for i in range(len(first)):
@@ -48,9 +41,30 @@ for i in range(len(first)):
   else:
     k = 0
   if len(second) == 0:
+    print(first)
+    while len(first) != 0:
+      first[len(first) - 1] = (list_numbers[list_numbers.index(first[len(first) - 1]) + k])
+      spam = (list_numbers.index(first[len(first) - 1]) + 1)
+      if spam > 15:
+        k = 1
+      else:
+        break
+    first.reverse()
     res.extendleft(first)
     break
 print('результат сложения - ', res)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
